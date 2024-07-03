@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <!-- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head> -->
-  <body>
-    <span>Total clicks: 0</span>
-    <button id="btn">Click me</button>
-  </body>
-  <script>
-    const button = document.getElementById("btn");
-    function handleClick() {
-      console.log("I have been clicked");
-    }
-    button.addEventListener("click", handleClick);
-  </script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+<script src="https://www.unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script>
+  const span = React.createElement("span");
+  // span을 만들었지만 body에 생기진 않았다 => 이걸 body안에 react element를 가져다 둘 수 있는지
+  // React.js가 HTML을 생성 / 생성한 span을 body안에 두는건 React가 대신할거다
+  // 그렇게 하려면 react-dom을 사용해야 한다
+  // React JS는 어플리케이션이 아주 interactive하도록 만들어주는 library이고
+  // react-dom은 library, 또는 package인데 모든 React element들을 HTML body에 둘 수 있도록 해준다.
+
+  // React JS는 엔진과 같다
+  // interactive한 UI를 만들 수 있게 한다
+  // react-dom은 React element를 HTML에 두는 역할을 한다
+
+  ReactDom.render(span, )
+  // render의 의미 => React Element를 가지고 HTML로 만들어 배치한다는 거다 => 사용자에게 보여주는거다
+  // render(span, )  => (span을 render한다, reactDom에게 어디에 span을 둘지 알려주는것)
+</script>
 </html>
