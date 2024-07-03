@@ -28,9 +28,20 @@
     // interactive한 UI를 만들 수 있게 한다
     // react-dom은 React element를 HTML에 두는 역할을 한다
 
-    ReactDom.render(span, root);
+    const span2 = React.createElement("span");
+    // createElement에는 더 작성할 수 있는 argument가 있다
+    const span3 = React.createElement("span", {});
+    // 두번째 argument로 둘 수 있는 것은 span의 property들이다
+    // property는 class name이 될 수도 있고 id가 될 수도 있다
+    // span에 두고 싶은 무엇이든 괜찮다
+    const spanID = React.createElement("span", { id: "sexy-span" });
+    // id를 사용하려는것은 아니고 React JS로 element를 생성하는 것이 얼마나 편리한지 보여주려는 거다
+    ReactDOM.render(spanID, root);
+    // <span id="sexy-span"></span>가 <div id="root"></div>안에 들어가는걸 볼 수 있다
+
+    // ReactDOM.render(span, root);
     // render의 의미 => React Element를 가지고 HTML로 만들어 배치한다는 거다 => 사용자에게 보여주는거다
-    // render(span, )  => (span을 render한다, reactDom에게 어디에 span을 둘지 알려주는것)
+    // render(span, root)  => (span을 render한다, reactDom에게 어디에(root에) span을 둘지 알려주는것)
     // ReactDom한테 말해줘야한다 / span을 root안에 render해달라고
 
     // ==> 모두 이 방식대로 React element를 생성할거다
