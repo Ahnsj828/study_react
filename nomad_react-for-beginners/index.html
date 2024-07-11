@@ -13,20 +13,20 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         function App() {
-            const [counter, setCounter] = React.useState(0)
+            const [counter, setCounter] = React.useState(0);
             const onClick = () => {
-                setCounter(counter + 1)
-            }
-            console.log('renderd')
-            console.log(counter)
+                // setCounter(counter + 1)
+                setCounter((current) => current + 1);
+            };
+
             return (
                 <div>
                     <h3>Total clicks: {counter}</h3>
                     <button onClick={onClick}>Click me</button>
                 </div>
-            )
+            );
         }
-        const root = document.getElementById('root')
-        ReactDOM.render(<App />, root)
+        const root = document.getElementById('root');
+        ReactDOM.render(<App />, root);
     </script>
 </html>
