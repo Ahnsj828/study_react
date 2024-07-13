@@ -14,7 +14,7 @@
   <script type="text/babel">
     function App() {
       const [amount, setAmount] = React.useState(0);
-      const [flipped, setFlipped] = React.useState(false);
+      const [inverted, setInverted] = React.useState(false);
 
       const onChange = (event) => {
         // console.log(event.target.value);
@@ -22,7 +22,7 @@
         setAmount(event.target.value);
       };
       const reset = () => setAmount(0);
-      const onFlip = () => setFlipped((current) => !current);
+      const onInvert = () => setInverted((current) => !current);
       return (
         <div>
           <h1 className="hi">Super Converter</h1>
@@ -30,13 +30,13 @@
           <div>
             <label htmlFor="minutes">Minutes</label>
             <input
-              value={flipped ? amount * 60 : amount}
+              value={inverted ? amount * 60 : amount}
               id="minutes"
               placeholder="Minutes"
               type="number"
               onChange={onChange}
               //   disabled={flipped == true}
-              disabled={flipped}
+              disabled={inverted}
             />
           </div>
 
@@ -45,19 +45,25 @@
           <div>
             <label htmlFor="hours">Hours</label>
             <input
-              value={flipped ? amount : amount / 60}
+              //   value={flipped ? amount : amount / 60}
+              value={inverted ? amount : Math.round(amount / 60)}
               id="hours"
               placeholder="Hours"
               type="number"
               onChange={onChange}
               //   disabled={flipped == false}
-              disabled={!flipped}
+              disabled={!inverted}
             />
           </div>
 
           <br />
           <button onClick={reset}>Reset</button>
-          <button onClick={onFlip}>Flip</button>
+          <button onClick={onInvert}>
+            {inverted ? "Turn back" : "Inverted"}
+          </button>
+          <h4 onClick={onInvert}>
+            {inverted ? "Hours => Minutes" : "Minutes => Hours"}
+          </h4>
         </div>
       );
     }
