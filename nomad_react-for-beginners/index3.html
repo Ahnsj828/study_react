@@ -39,8 +39,7 @@
               disabled={inverted}
             />
           </div>
-
-          <h4>You want to convert {amount}</h4>
+          <br />
 
           <div>
             <label htmlFor="hours">Hours</label>
@@ -56,7 +55,7 @@
             />
           </div>
 
-          <br />
+          <h4>You want to convert {amount}</h4>
           <button onClick={reset}>Reset</button>
           <button onClick={onInvert} style={{ margin: "3px" }}>
             {inverted ? "Turn back" : "Invert"}
@@ -64,6 +63,87 @@
           <h4 onClick={onInvert}>
             {inverted ? "Hours => Minutes" : "Minutes => Hours"}
           </h4>
+        </div>
+      );
+    }
+
+    function KilogramsGramsPounds() {
+      const [kilograms, setKilograms] = React.useState(0);
+      const [grams, setGrams] = React.useState(0);
+      const [pounds, setPounds] = React.useState(0);
+      const [message, setMessage] = React.useState("");
+
+      const onKilogramsChange = (event) => {
+        const kg = parseFloat(event.target.value);
+        setKilograms(kg);
+        setGrams(kg * 1000); // Convert kilograms to grams
+        setPounds(kg * 2.20462); // Convert kilograms to pounds
+        setMessage("Kilograms => Grams & Pounds");
+      };
+
+      const onGramsChange = (event) => {
+        const g = parseFloat(event.target.value);
+        setKilograms(g / 1000); // Convert grams to kilograms
+        setGrams(g);
+        setPounds(g * 0.00220462); // Convert grams to pounds
+        setMessage("Grams => Kilograms & Pounds");
+      };
+
+      const onPoundsChange = (event) => {
+        const lb = parseFloat(event.target.value);
+        setKilograms(lb * 0.453592); // Convert pounds to kilograms
+        setGrams(lb * 453.592); // Convert pounds to grams
+        setPounds(lb);
+        setMessage("Pounds => Kilograms & Grams");
+      };
+
+      const reset = () => {
+        setKilograms(0);
+        setGrams(0);
+        setPounds(0);
+      };
+
+      return (
+        <div style={{ border: "1px solid #000", padding: "20px" }}>
+          <div id="kilograms-span">
+            <label htmlFor="kilograms">Kilograms : </label>
+            <input
+              value={kilograms}
+              id="kilograms"
+              type="number"
+              placeholder="Kilograms"
+              onChange={onKilogramsChange}
+            />
+          </div>
+          <br />
+
+          <div id="grams-span">
+            <label htmlFor="grams">Grams : </label>
+            <input
+              value={grams}
+              id="grams"
+              type="number"
+              placeholder="Grams"
+              onChange={onGramsChange}
+            />
+          </div>
+          <br />
+
+          <div id="pounds-span">
+            <label htmlFor="pounds">Pounds : </label>
+            <input
+              value={pounds}
+              id="pounds"
+              type="number"
+              placeholder="Pounds"
+              onChange={onPoundsChange}
+            />
+          </div>
+
+          <br />
+          <br />
+          <h4 id="notice">{message}</h4>
+          <button onClick={reset}>Reset</button>
         </div>
       );
     }
@@ -129,18 +209,21 @@
         <div>
           {index === "xx" ? <h1>Super Converter</h1> : null}
           {index === "0" ? <h1>Minutes & Hours</h1> : null}
-          {index === "1" ? <h1>Kilometers & Miles</h1> : null}
+          {index === "1" ? <h1>Kilograms & Grams & Pounds</h1> : null}
+          {index === "2" ? <h1>Kilometers & Miles</h1> : null}
           <select value={index} onChange={onSelect}>
             <option value="xx">Select your units</option>
             <option value="0">Minutes & Hours</option>
-            <option value="1">Kilometers & Miles</option>
+            <option value="1">Kilograms & Grams & Pounds</option>
+            <option value="2">Kilometers & Miles</option>
           </select>
           <br />
           <br />
           <hr />
           {index === "xx" ? "Please select your units" : null}
           {index === "0" ? <MinutesToHours /> : null}
-          {index === "1" ? <KmToMiles /> : null}
+          {index === "1" ? <KilogramsGramsPounds /> : null}
+          {index === "2" ? <KmToMiles /> : null}
           {/* 두 개의 if else를 만들었다 */}
         </div>
       );
