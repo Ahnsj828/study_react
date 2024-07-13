@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://www.unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        function App() {
+            const [minutes, setMinutes] = React.useState(0);
+            const onChange = (event) => {
+                // console.log(event.target.value);
+                // console.log(Number.event / 60);
+                setMinutes(event.target.value);
+            };
+            const reset = () => setMinutes(0);
+
+            return (
+                <div>
+                    <h1 className="hi">Super Converter</h1>
+
+                    <div>
+                        <label htmlFor="minutes">Minutes</label>
+                        <input value={minutes} id="minutes" placeholder="Minutes" type="number" onChange={onChange} />
+                    </div>
+
+                    <h4>You want to convert {minutes}</h4>
+
+                    <div>
+                        <label htmlFor="hours">Hours</label>
+                        <input value={minutes / 60} id="hours" placeholder="Hours" type="number" disabled />
+                    </div>
+
+                    <br />
+                    <button onClick={reset}>Reset</button>
+                </div>
+            );
+        }
+        const root = document.getElementById('root');
+        ReactDOM.render(<App />, root);
+    </script>
+</html>
