@@ -58,7 +58,7 @@
 
           <br />
           <button onClick={reset}>Reset</button>
-          <button onClick={onInvert}>
+          <button onClick={onInvert} style={{ margin: "3px" }}>
             {inverted ? "Turn back" : "Invert"}
           </button>
           <h4 onClick={onInvert}>
@@ -69,22 +69,67 @@
     }
 
     function KmToMiles() {
+      const [amount, setAmount] = React.useState(0);
+      const [inverted, setInverted] = React.useState(false);
+
+      const onChange = (event) => {
+        setAmount(event.target.value);
+      };
+      const reset = () => setAmount(0);
+      const onInvert = () => {
+        reset();
+        setInverted((current) => !current);
+      };
+
       return (
         <div style={{ border: "1px solid #000", padding: "20px" }}>
-          <h3>KM 2 M</h3>
+          <div>
+            <label htmlFor="kilometers">Kilometers : </label>
+            <input
+              value={inverted ? amount * 1.60934 : amount}
+              id="kilometers"
+              type="number"
+              onChange={onChange}
+              disabled={inverted}
+            />
+          </div>
+
+          <h4>You want to convert {amount}</h4>
+
+          <div>
+            <label htmlFor="miles">Miles : </label>
+            <input
+              value={inverted ? amount : amount / 1.60934}
+              id="miles"
+              onChange={onChange}
+              type="number"
+              disabled={!inverted}
+            />
+          </div>
+
+          <br />
+          <button onClick={reset}>Reset</button>
+          <button onClick={onInvert} style={{ margin: "3px" }}>
+            {inverted ? "Turn back" : "Invert"}
+          </button>
+          <h4 onClick={onInvert}>
+            {inverted ? "Miles => Kilometers" : "Kilometers => Miles"}
+          </h4>
         </div>
       );
     }
 
     function App() {
-      const [index, setIndex] = React.useState("xx");
+      const [index, setIndex] = React.useState("1");
       const onSelect = (event) => {
         setIndex(event.target.value);
       };
       console.log("render w/", index);
       return (
         <div>
-          <h1 className="hi">Super Converter</h1>
+          {index === "xx" ? <h1>Super Converter</h1> : null}
+          {index === "0" ? <h1>Minutes & Hours</h1> : null}
+          {index === "1" ? <h1>Kilometers & Miles</h1> : null}
           <select value={index} onChange={onSelect}>
             <option value="xx">Select your units</option>
             <option value="0">Minutes & Hours</option>
