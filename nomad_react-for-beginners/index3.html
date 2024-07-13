@@ -13,7 +13,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <script type="text/babel">
-    function App() {
+    function MinutesToHours() {
       const [amount, setAmount] = React.useState(0);
       const [inverted, setInverted] = React.useState(false);
 
@@ -26,8 +26,7 @@
         setInverted((current) => !current);
       };
       return (
-        <div>
-          <h1 className="hi">Super Converter</h1>
+        <div style={{ border: "1px solid #000", padding: "20px" }}>
           <div>
             <label htmlFor="minutes">Minutes</label>
             <input
@@ -68,6 +67,40 @@
         </div>
       );
     }
+
+    function KmToMiles() {
+      return (
+        <div style={{ border: "1px solid #000", padding: "20px" }}>
+          <h3>KM 2 M</h3>
+        </div>
+      );
+    }
+
+    function App() {
+      const [index, setIndex] = React.useState("xx");
+      const onSelect = (event) => {
+        setIndex(event.target.value);
+      };
+      console.log("render w/", index);
+      return (
+        <div>
+          <h1 className="hi">Super Converter</h1>
+          <select value={index} onChange={onSelect}>
+            <option value="xx">Select your units</option>
+            <option value="0">Minutes & Hours</option>
+            <option value="1">Kilometers & Miles</option>
+          </select>
+          <br />
+          <br />
+          <hr />
+          {index === "xx" ? "Please select your units" : null}
+          {index === "0" ? <MinutesToHours /> : null}
+          {index === "1" ? <KmToMiles /> : null}
+          {/* 두 개의 if else를 만들었다 */}
+        </div>
+      );
+    }
+
     const root = document.getElementById("root");
     ReactDOM.render(<App />, root);
   </script>
