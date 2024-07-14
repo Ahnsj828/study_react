@@ -31,14 +31,15 @@
         </button>
       );
     }
+    const MemorizedBtn = React.memo(Btn);
 
     function App() {
       const [value, setValue] = React.useState("Save Changes");
       const chageValue = () => setValue("Revert Changes");
       return (
         <div>
-          <Btn text={value} chageValue={chageValue} />
-          <Btn text="Continue" />
+          <MemorizedBtn text={value} chageValue={chageValue} />
+          <MemorizedBtn text="Continue" />
         </div>
       );
     }
