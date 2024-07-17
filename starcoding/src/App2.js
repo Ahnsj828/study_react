@@ -19,45 +19,64 @@
 
 // import React, { useState, useEffect } from "react";
 
+// const App2 = () => {
+//   const [count, setCount] = useState(1);
+//   const [name, setName] = useState("");
+
+//   const handleCountUpdate = () => {
+//     setCount(count + 1);
+//   };
+//   const handleInputChange = (e) => {
+//     setName(e.target.value);
+//   };
+
+//   // 랜더링마다 매번 실행됨 - 렌더링 이후
+//   useEffect(() => {
+//     console.log("렌더링✨");
+//   });
+
+//   // 마운트 + count가 변화할때마다 실행
+//   useEffect(() => {
+//     console.log("count 변화📈");
+//   }, [count]);
+
+//   // 마운트 + name이 변경될때마다 실행
+//   useEffect(() => {
+//     console.log("name의 변화🎈");
+//   }, [name]);
+
+//   // 가장 처음에 렌더링될 때만 실행
+//   useEffect(() => {
+//     console.log("마운팅🏞");
+//   }, []);
+
+//   return (
+//     <div>
+//       <button onClick={handleCountUpdate}>Update</button>
+//       <span>count: {count}</span>
+//       <br />
+//       <input type="text" value={name} onChange={handleInputChange} />
+//       <br />
+//       <span>name: {name}</span>
+//     </div>
+//   );
+// };
+
+// export default App2;
+
+// =============================================================================
+
+import React, { useState } from "react";
+import Timer from "./component/Timer";
+
 const App2 = () => {
-  const [count, setCount] = useState(1);
-  const [name, setName] = useState("");
-
-  const handleCountUpdate = () => {
-    setCount(count + 1);
-  };
-  const handleInputChange = (e) => {
-    setName(e.target.value);
-  };
-
-  // 랜더링마다 매번 실행됨 - 렌더링 이후
-  useEffect(() => {
-    console.log("렌더링✨");
-  });
-
-  // 마운트 + count가 변화할때마다 실행
-  useEffect(() => {
-    console.log("count 변화📈");
-  }, [count]);
-
-  // 마운트 + name이 변경될때마다 실행
-  useEffect(() => {
-    console.log("name의 변화🎈");
-  }, [name]);
-
-  // 가장 처음에 렌더링될 때만 실행
-  useEffect(() => {
-    console.log("마운팅🏞");
-  }, []);
-
+  const [showTimer, setShowTimer] = useState(false);
   return (
     <div>
-      <button onClick={handleCountUpdate}>Update</button>
-      <span>count: {count}</span>
-      <br />
-      <input type="text" value={name} onChange={handleInputChange} />
-      <br />
-      <span>name: {name}</span>
+      {showTimer && <Timer />}
+      {/* showTimer가 true일때만 <Timer />를 보여줘라 */}
+      <button onClick={() => setShowTimer(!showTimer)}>Toggle Timer</button>
+      {/* button이 클릭 될 때마다 showTimer가 false라면 true로 바껴야되고 true라면 false로 바뀌어야한다 */}
     </div>
   );
 };
