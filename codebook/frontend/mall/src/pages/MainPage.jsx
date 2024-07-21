@@ -1,8 +1,10 @@
+import BasicLayout from "../layouts/BasicLayout";
+
 const MainPage = () => {
   return (
-    <div className=" text-3x1">
-      <div>Main Page</div>
-    </div>
+    <BasicLayout>
+      <div className=" text-3xl">Main Page</div>
+    </BasicLayout>
   );
 };
 
