@@ -15,29 +15,41 @@ function Header() {
   );
 }
 
+function Nav() {
+  return (
+    <nav>
+      {/* html, css, js와 같은 구체적인 글을 보는 페이지로 이동하는 영역 */}
+      <ol>
+        <li>
+          <a href="/read/1">html</a>
+        </li>
+        <li>
+          <a href="/read/2">css</a>
+        </li>
+        <li>
+          <a href="/read/3">js</a>
+        </li>
+      </ol>
+    </nav>
+  );
+}
+
+function Article() {
+  return (
+    <article>
+      {/* 본문을 표시하는 영역 */}
+      <h2>Welcome</h2>
+      Hello, WEB
+    </article>
+  );
+}
+
 function App() {
   return (
     <div>
       <Header></Header>
-      <nav>
-        {/* html, css, js와 같은 구체적인 글을 보는 페이지로 이동하는 영역 */}
-        <ol>
-          <li>
-            <a href="/read/1">html</a>
-          </li>
-          <li>
-            <a href="/read/2">css</a>
-          </li>
-          <li>
-            <a href="/read/3">js</a>
-          </li>
-        </ol>
-      </nav>
-      <article>
-        {/* 본문을 표시하는 영역 */}
-        <h2>Welcome</h2>
-        Hello, WEB
-      </article>
+      <Nav></Nav>
+      <Article></Article>
     </div>
   );
 }
