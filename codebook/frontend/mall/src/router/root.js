@@ -6,7 +6,7 @@
 //  // => root는 변수다 -> createBrowserRouter함수를 실행한 결과값을 담고 있는 const변수다
 //  // => createBrowserRouter 함수는 배열형식으로 입력값을 받고 있다.
 
-//-------👇🏻기본path(url)에 MainPage 컴포넌트를 연결👇🏻-------
+//-------👇🏻기본path(url)에 MainPage 컴포넌트를 연결👇🏻---------------------
 
 // import { createBrowserRouter } from "react-router-dom";
 // import MainPage from "../pages/MainPage";
