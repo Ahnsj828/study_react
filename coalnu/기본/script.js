@@ -97,3 +97,14 @@
 // --------------------------------------
 // 삼항 연산자
 // ES6문법은 아니지만 많이 사용한다
+
+// let person = { name: "sj", age: 12 };
+let person = null;
+
+if (person) {
+  console.log(person.name);
+} else {
+  console.log("There is no person");
+}
+
+console.log(person ? person.name : "there in no person");
