@@ -2,7 +2,7 @@ import React from "react";
 import rock from "../assets/imgs/rock.png";
 
 const Box = (props) => {
-  console.log("props:", props);
+  // console.log("props:", props);
   return (
     <div className="box">
       <h1>{props.title}</h1>

@@ -31,15 +31,30 @@ const choice = {
 
 function App() {
   const [userSelect, setUserSelect] = useState(null);
+  const [comSelect, setComSelect] = useState(null);
+
   const play = (userChoice) => {
     setUserSelect(choice[userChoice]);
+    let comChoice = randomChoice();
+  };
+
+  const randomChoice = () => {
+    let itemArray = Object.keys(choice);
+    // Object.keys() 이 함수는 뭐냐? => 객체에 key값만 뽑아서 array로 만들어 주는  함수다.
+    console.log("itemArray: ", itemArray);
+
+    let randomItem = Math.floor(Math.random() * itemArray.length);
+    console.log("randomItem:", randomItem);
+
+    let final = itemArray[randomItem];
+    console.log(final);
   };
 
   return (
     <div className="container">
       <div className="main">
         <Box title="User" item={userSelect} />
-        {/* <Box title="Computer" /> */}
+        <Box title="Computer" item={comSelect} />
       </div>
       <div className="main">
         <button onClick={() => play("rock")}>Rock</button>
