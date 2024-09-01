@@ -55,7 +55,7 @@ function App() {
 
     // 객체끼리 비교할 수 없으니 name을 갖고 비교할거다
     if (user.name == com.name) {
-      return "tie";
+      return "Tie";
     } else if (user.name == "Rock")
       // {
       //   if (com.name == "Scissors") {
