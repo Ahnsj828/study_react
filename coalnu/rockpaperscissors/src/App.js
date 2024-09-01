@@ -36,18 +36,20 @@ function App() {
   const play = (userChoice) => {
     setUserSelect(choice[userChoice]);
     let comChoice = randomChoice();
+    setComSelect(comChoice);
   };
 
   const randomChoice = () => {
     let itemArray = Object.keys(choice);
     // Object.keys() 이 함수는 뭐냐? => 객체에 key값만 뽑아서 array로 만들어 주는  함수다.
-    console.log("itemArray: ", itemArray);
+    // console.log("itemArray: ", itemArray);
 
     let randomItem = Math.floor(Math.random() * itemArray.length);
-    console.log("randomItem:", randomItem);
+    // console.log("randomItem:", randomItem);
 
     let final = itemArray[randomItem];
-    console.log(final);
+    // console.log(final);
+    return choice[final];
   };
 
   return (
