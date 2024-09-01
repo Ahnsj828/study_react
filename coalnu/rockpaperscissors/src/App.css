@@ -22,3 +22,18 @@
 .item-img {
   width: 300px;
 }
+
+.Win {
+  border: 10px solid green;
+  color: green;
+}
+
+.Lose {
+  border: 10px solid red;
+  color: red;
+}
+
+.tie {
+  border: 10px solid black;
+  color: black;
+}

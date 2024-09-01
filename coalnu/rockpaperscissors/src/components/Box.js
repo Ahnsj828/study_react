@@ -5,7 +5,7 @@ const Box = (props) => {
   let result;
   if (
     props.title === "Computer" &&
-    props.result !== "tie" &&
+    props.result !== "Tie" &&
     props.result !== ""
   ) {
     // 카드가 computer카드인가? && 결과가 비긴건 아닌가? && props.result에 값이 있는가?
@@ -16,7 +16,7 @@ const Box = (props) => {
   }
 
   return (
-    <div className="box">
+    <div className={`box ${result}`}>
       <h1>{props.title}</h1>
       <h2>{props.item && props.item.name}</h2>
       <img className="item-img" src={props.item && props.item.img} />
