@@ -42,7 +42,7 @@ function App() {
   };
 
   const judgement = (user, com) => {
-    console.log("user: ", user, "com: ", com);
+    // console.log("user: ", user, "com: ", com);
 
     // 가위바위보 로직에 대해 생각해보기
     // user == com => tie
