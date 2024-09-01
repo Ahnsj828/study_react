@@ -20,7 +20,7 @@ const choice = {
     img: rock,
   },
   paper: {
-    name: "PaPer",
+    name: "Paper",
     img: paper,
   },
   scissors: {
@@ -32,11 +32,44 @@ const choice = {
 function App() {
   const [userSelect, setUserSelect] = useState(null);
   const [comSelect, setComSelect] = useState(null);
+  const [result, setResult] = useState("");
 
   const play = (userChoice) => {
     setUserSelect(choice[userChoice]);
     let comChoice = randomChoice();
     setComSelect(comChoice);
+    setResult(judgement(choice[userChoice], comChoice));
+  };
+
+  const judgement = (user, com) => {
+    console.log("user: ", user, "com: ", com);
+
+    // 가위바위보 로직에 대해 생각해보기
+    // user == com => tie
+    // user == rock,      com == scissors   =>  user win
+    // user == rock,      com == paper      =>  user lose
+    // user == paper,     com == rock       =>  user win
+    // user == paper,     com == scissors   =>  user lose
+    // user == scissors,  com == paper      =>  user win
+    // user == scissors,  com == rock       =>  user lose
+
+    // 객체끼리 비교할 수 없으니 name을 갖고 비교할거다
+    if (user.name == com.name) {
+      return "tie";
+    } else if (user.name == "Rock")
+      // {
+      //   if (com.name == "Scissors") {
+      //     return "Win";
+      //   } else {
+      //     return "Lose";
+      //   }
+      // }
+
+      // 삼항 연산식으로 바꾸기(코드 간편화를 위해)
+      return com.name == "Scissors" ? "Win" : "Lose";
+    else if (user.name == "Paper") return com.name == "Rock" ? "Win" : "Lose";
+    else if (user.name == "Scissors")
+      return com.name == "Paper" ? "Win" : "Lose";
   };
 
   const randomChoice = () => {
@@ -55,8 +88,8 @@ function App() {
   return (
     <div className="container">
       <div className="main">
-        <Box title="User" item={userSelect} />
-        <Box title="Computer" item={comSelect} />
+        <Box title="User" item={userSelect} result={result} />
+        <Box title="Computer" item={comSelect} result={result} />
       </div>
       <div className="main">
         <button onClick={() => play("rock")}>Rock</button>
