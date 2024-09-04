@@ -2,6 +2,7 @@ import React from "react";
 
 const Box = (props) => {
   // console.log("props:", props);
+
   let result;
   if (
     props.title === "Computer" &&
