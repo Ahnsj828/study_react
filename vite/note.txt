@@ -14,3 +14,16 @@ Vite는 합리적인 기본 설정을 제공합니다. 기능 가이드에서 �
 
 -----------------------------------------------------------------------------------
 
+* 현재 지원하고 있는 템플릿은 다음과 같습니다:
+
+JavaScript	     TypeScript
+----------------------------
+vanilla	         vanilla-ts
+vue	               vue-ts
+react	            react-ts
+preact	         preact-ts
+lit	             lit-ts
+svelte	         svelte-ts
+solid	          solid-ts
+qwik	            qwik-ts
+
