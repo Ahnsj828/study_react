@@ -18,12 +18,16 @@ Vite는 합리적인 기본 설정을 제공합니다. 기능 가이드에서 �
 
 JavaScript	     TypeScript
 ----------------------------
-vanilla	         vanilla-ts
-vue	               vue-ts
-react	            react-ts
-preact	         preact-ts
-lit	             lit-ts
-svelte	         svelte-ts
-solid	          solid-ts
-qwik	            qwik-ts
+ vanilla	       vanilla-ts
+   vue	           vue-ts
+  react	          react-ts
+ preact	         preact-ts
+   lit	           lit-ts
+ svelte	          svelte-ts
+ solid	          solid-ts
+  qwik	           qwik-ts
 
+-----------------------------------------------------------------------------------
+
+기존에 webpack 기반에 번들링, 도구를 기반으로한 create react app 이라고 하는 프로젝트가 리액트 프로젝트 그 틀을 잡아주는 코드가 이렇게 있었는데 (https://create-react-app.dev/) 이 cra가 webpack기반이라고 한다면
+webpack과 경쟁 관계인 Rollup이라고 있는데 이 Rollup이 굉장이 빠르게 일들을 해준다. webpack보다 나중에 나왔고 webpack의 단점을 보완한다. vite는 Rollup 기반이다.
