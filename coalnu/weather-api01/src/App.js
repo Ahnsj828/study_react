@@ -15,8 +15,13 @@ function App() {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
       let lon = position.coords.longitude;
-      console.log("현재 위치", lat, lon);
+      getWeatherByCurrentLocation(lat, lon);
     });
+  };
+
+  const getWeatherByCurrentLocation = (lat, lon) => {
+    let url =
+      "http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}";
   };
 
   useEffect(() => {
