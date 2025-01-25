@@ -20,8 +20,7 @@ function App() {
   };
 
   const getWeatherByCurrentLocation = (lat, lon) => {
-    let url =
-      "http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}";
+    let url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=01e9b12a2d5803dd083f13f1c22351b9`;
   };
 
   useEffect(() => {
