@@ -16,11 +16,12 @@ function App() {
       let lat = position.coords.latitude;
       let lon = position.coords.longitude;
       getWeatherByCurrentLocation(lat, lon);
+      // console.log(process.env.REACT_APP_OPENWEATHERMAP_API_KEY);
     });
   };
 
   const getWeatherByCurrentLocation = (lat, lon) => {
-    let url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=01e9b12a2d5803dd083f13f1c22351b9`;
+    let url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`;
   };
 
   useEffect(() => {
