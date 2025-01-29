@@ -35,12 +35,12 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <div className="container">
-        <WeatherBox />
-        <WeatherButton />
-      </div>
+    // <div>
+    <div className="container">
+      <WeatherBox />
+      <WeatherButton />
     </div>
+    // </div>
   );
 }
 
