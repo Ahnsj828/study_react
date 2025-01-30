@@ -14,6 +14,8 @@ import WeatherButton from "./component/WeatherButton";
 // 7. 날씨상태에 따라 배경색이 변한다. ->  내가 추가할 기능
 
 function App() {
+  const [weather, setWeather] = useState(null);
+
   const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
@@ -27,7 +29,8 @@ function App() {
     let url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`;
     let response = await fetch(url);
     let data = await response.json();
-    console.log("data", data);
+    // console.log("data", data);
+    setWeather(data);
   };
 
   useEffect(() => {
