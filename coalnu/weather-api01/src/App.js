@@ -40,7 +40,7 @@ function App() {
   return (
     // <div>
     <div className="container">
-      <WeatherBox />
+      <WeatherBox weather={weather} />
       <WeatherButton />
     </div>
     // </div>
