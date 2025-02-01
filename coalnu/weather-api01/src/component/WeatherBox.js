@@ -1,7 +1,7 @@
 import React from "react";
 import "./componentsStyle.css";
 
-const WeatherBox = () => {
+const WeatherBox = (props) => {
   return (
     <div className="weather-box">
       <div>서울</div>
