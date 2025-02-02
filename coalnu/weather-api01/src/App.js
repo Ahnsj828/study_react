@@ -30,6 +30,7 @@ function App() {
     let response = await fetch(url);
     let data = await response.json();
     // console.log("data", data);
+
     setWeather(data);
   };
 
