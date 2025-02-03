@@ -39,12 +39,10 @@ function App() {
   }, []);
 
   return (
-    // <div>
     <div className="container">
       <WeatherBox weather={weather} />
       <WeatherButton />
     </div>
-    // </div>
   );
 }
 
