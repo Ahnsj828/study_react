@@ -9,7 +9,7 @@ const WeatherBox = ({ weather }) => {
       <div>{weather?.name}</div>
       <h2>{weather?.main.temp}</h2>
       <h2> {weather?.main.temp * 1.8 + 32}</h2>
-      <h3>맑은 하늘</h3>
+      <h3>{weather?.weather[0].description}</h3>
     </div>
   );
 };
