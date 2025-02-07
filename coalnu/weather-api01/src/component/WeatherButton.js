@@ -4,6 +4,7 @@ import "./componentsStyle.css";
 
 const WeatherButton = ({ cities }) => {
   console.log("cities", cities);
+
   return (
     <div className="weather-button">
       <Button variant="light">CurrentLocation</Button>
