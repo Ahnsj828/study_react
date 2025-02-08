@@ -8,10 +8,6 @@ const WeatherButton = ({ cities }) => {
   return (
     <div className="weather-button">
       <Button variant="light">CurrentLocation</Button>
-      <Button variant="dark">Paris</Button>
-      <Button variant="dark">London</Button>
-      <Button variant="dark">New York</Button>
-      <Button variant="dark">Tokyo</Button>
     </div>
   );
 };
