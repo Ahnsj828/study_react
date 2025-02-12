@@ -5,14 +5,14 @@ import "./componentsStyle.css";
 const WeatherButton = ({ cities }) => {
   console.log("cities", cities);
 
-  const searchByCity = () => {};
+  const searchByCity = (cityName) => {};
 
   return (
     <div className="weather-button">
       <Button variant="light">CurrentLocation</Button>
 
       {cities.map((item, index) => (
-        <Button variant="light" key={index} onClick={searchByCity}>
+        <Button variant="light" key={index} onClick={() => searchByCity(item)}>
           {item}
         </Button>
       ))}
