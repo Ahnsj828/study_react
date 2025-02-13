@@ -5,7 +5,11 @@ import "./componentsStyle.css";
 const WeatherButton = ({ cities }) => {
   console.log("cities", cities);
 
-  const searchByCity = (cityName) => {};
+  const [city, setCity] = useState("");
+
+  const searchByCity = (cityName) => {
+    setCity(cityName);
+  };
 
   return (
     <div className="weather-button">
